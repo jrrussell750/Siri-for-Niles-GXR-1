@@ -101,6 +101,6 @@ if ($InputSelector == 'Vol*'){
     for ($x=1; $x<=5; $x++){
          socket_sendto($socket, $message, strlen($message), 0, $server_ip, $server_port);
     }
-}
+}shortcut to Niles GXR-2 command strings 
 
 ?>
