@@ -10,27 +10,27 @@ print ("input = " . $InputSelector . "<br>" . "Zone = " . $zone . "<br>");
 
 if ($zone == '1') 
 { 
-  $zoneid = "\x21";
+  $zoneid = "\x21";   // zone 1
 }
 elseif ($zone == '2')
 {
-  $zoneid = "\x22";
+  $zoneid = "\x22";   // zone 2
 }
 elseif ($zone == '3')
 {
-  $zoneid = "\x23"; 
+  $zoneid = "\x23";    // zone 3
 }
 elseif ($zone == '4')
 {
-  $zoneid = "\x24"; 
+  $zoneid = "\x24";    // zone 4
 }
 elseif ($zone == '5')
 {
-  $zoneid = "\x25"; 
+  $zoneid = "\x25";    // zone 5
 }
 elseif ($zone == '6')
 {
-  $zoneid = "\x26"; 
+  $zoneid = "\x26";    // zone 6
 }
 else 
 {
@@ -39,27 +39,27 @@ print "No Zone Match <br>";
 
 if ($InputSelector == '1') 
 {
-  $inputid = "\x01";
+  $inputid = "\x01";  // device 1
 }
 elseif ($InputSelector == '2')
 {
-  $inputid = "\x02";
+  $inputid = "\x02";  // device 2
 }
 elseif ($InputSelector == '3')
 {
-  $inputid = "\x03"; 
+  $inputid = "\x03";   // device 3
 }
 elseif ($InputSelector == '4')
 {
-  $inputid = "\x04"; 
+  $inputid = "\x04";   // device 4
 }
 elseif ($InputSelector == '5')
 {
-  $inputid = "\x05"; 
+  $inputid = "\x05";   // device 5
 }
 elseif ($InputSelector == '6')
 {
-  $inputid = "\x06"; 
+  $inputid = "\x06";   // device 6
 }
 elseif ($InputSelector == '7')
 {
