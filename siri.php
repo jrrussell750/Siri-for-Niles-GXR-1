@@ -2,11 +2,13 @@
 
 session_start();
 
-$server_ip = '10.100.0.1'; 
-$server_port = 6001; 
-$zone = $_GET['zone'];
-$InputSelector = $_GET['device'];
-print ("input = " . $InputSelector . "<br>" . "Zone = " . $zone . "<br>");
+//  Creates Niles GXR-2 command string using information passed in the URL
+
+$server_ip = '10.100.0.1';   // IP Address of the Niles GXR-2
+$server_port = 6001;         // TCP port of the Niles GXR-2
+$zone = $_GET['zone'];       // Get zone information from the URL (1-6)
+$InputSelector = $_GET['device'];   // Get device information from the URL (1-6)
+// print ("input = " . $InputSelector . "<br>" . "Zone = " . $zone . "<br>");
 
 if ($zone == '1') 
 { 
@@ -85,7 +87,7 @@ else {
 print "No Input Match <br>";
 }
 
-$message = "\x00\x12\x00" . $zoneid . "\x00\x0b\x61\x06" . $inputid . "\x00\xff";
+$message = "\x00\x12\x00" . $zoneid . "\x00\x0b\x61\x06" . $inputid . "\x00\xff";  // Compose GXR-2 command string
 //            \x00\x0e\x00     \x23       \x00\x0b\x61\x06     \x03     \x00\xff
 
 
@@ -101,6 +103,6 @@ if ($InputSelector == 'Vol*'){
     for ($x=1; $x<=5; $x++){
          socket_sendto($socket, $message, strlen($message), 0, $server_ip, $server_port);
     }
-}shortcut to Niles GXR-2 command strings 
+}
 
 ?>
