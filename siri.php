@@ -84,7 +84,7 @@ elseif ($InputSelector == '11')
   $inputid = "\x0a";    //  Zone Off
 }
 else {
-print "No Input Match <br>";
+print "No Device Match <br>";
 }
 
 $message = "\x00\x12\x00" . $zoneid . "\x00\x0b\x61\x06" . $inputid . "\x00\xff";  // Compose GXR-2 command string
