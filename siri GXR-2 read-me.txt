@@ -10,12 +10,21 @@ You can configure a raspberry pi as a Niles GXR-2 controller and then use Siri t
 Overview:
 
 1.	Connect a display, keyboard, mouse, and power supply to the raspberry pi.
-2.	Build the latest version of the raspberry pi operating system on a micro SD card.
+2.	Using instructions from the Raspberry Pi site (https://www.raspberrypi.com/software/), build the latest version of the raspberry 
+	pi operating system on a micro SD card.
 3.	Insert the micro SD card into a raspberry pi and boot it up.
 4.	Configure the wireless connection of the raspberry pi for access to your local network.
 5.	Verify that Apache is working.
+6.	Install PHP.
 6.	Copy files from github repository to raspberry pi.
-7.	Connect the wired connection of the raspberry pi to the Expansion port of the Niles GXR-2.
+7.	Connect the wired connection of the raspberry pi to the Expansion port of the Niles GXR-2.  
+
+	Warning:  The Niles GXR-2 has 12 RJ-45 female ports that are used for controllers.  These ports send power to the controllers using a 
+	non-standard DC voltage via pins 7 and 8.  Also, pins 4 and 5 are used to transfer ir remote signals from controllers to the GXR-2.  
+	Therefore, making a connection from the wired port on the Raspberry Pi to any of the controller ports on the Niles GXR-2 may damage 
+	the raspberry pi and/or the GXR-2.  Make sure you are connecting the wired port from the Raspberry Pi to the port labeled "Expansion" on
+	the GXR-2.
+	
 8.	Record the IP address of your raspberry pi's wireless connection for use in the shortcut(s).
 9.	Create and test first shortcut on your Iphone to Get contents of URL.
 10.	Add additional shortcut(s) as required.
@@ -37,10 +46,7 @@ Items required:
 
 Copying files from github
 
-	This github repository contains a file called siri.php.  Once the apache web server is properly configured on the raspberry pi, 
-	the file can be copied to the /var/www/html directory and an iPhone shortcut can be created to access it using a URL.  The shortcut
-	will contain zone and device information in the URL, and the siri.php file will use it to create a customized control string that it 
-	sends to the Niles GXR-2. Navigate to the 
+	This github repository contains a file called siri.php.  Copy this file to the /var/www/html directory on the Raspberry Pi.
 
 
 Creating and testing the first shortcut
@@ -50,13 +56,14 @@ Creating and testing the first shortcut
 	c.  Click on Shortcut Name and type in something like Turn On Niles.
 	d.  Click on Add Action.  
 	e.  In the search window that appears, type in Get Contents of URL.
-	f.  Click on URL and enter the following:
+	f.  Click on Get Contents of URL to select it.
+	g.  Click on URL and enter the following:
 
 	http://<enter ip address of your niles pi here>/siri.php?zone=<zone> Room&device=<device>
 
         Note:  You’ll need to use IP, zone, and device names from your system.  Also, the names are case sensitive, so make sure they are spelled 
 	and capitalized correctly.  You can also edit the zone and device names in the siri.php file to make it easier to refer to them in the URL.
 
-	g.  Test your shortcut.
+	h.  Test your shortcut.
 
  
