@@ -4,7 +4,8 @@ This file is under construction and will be updated several times during the nex
 you have questions or suggestions.
 
 
-You can configure a raspberry pi as a Niles GXR-2 controller and then use Siri to voice control the Niles through the use of shortcuts.  
+You can configure a raspberry pi as a Niles GXR-2 controller and then use Siri to voice control the Niles through the use of shortcuts.  This
+project assumes that you have access to a properly configured Niles GXR-2 that is operating properly.
 
 
 Overview:
@@ -34,15 +35,27 @@ Details
 
 Items required:
 
-  	Raspberry pi 3 or above with appropriate power supply
+  	Raspberry pi 3 or above with appropriate power supply (a power supply with an on/off switch is preferred
+	Raspberry Pi case (Optional)
 	Micro SD Card
-	HDMI monitor and cable  
+	HDMI monitor
+	HDMI cable (Raspberry Pi 3) or Micro HDMI to Standard HDMI Cable (Raspberry Pi 4) 
 	Keyboard with touch pad or mouse
 	Computer with SD card reader (used to download and install the raspberry pi operating system on the Micro SD card)
-	Access to a wireless LAN with Internet access
+	Access to a wireless Ethernet LAN with Internet access
 	Access to a Niles GXR-2 controller in working condition
 	Ethernet patch cable (raspberry pi wired LAN to GXR-2 expansion port)
 	An iPhone 6 or above with IOS 15 and functioning Siri
+
+Connecting the Raspberry Pi 
+
+	It is best to obtain a power supply that is designed to work with the Raspberry pi, as some USB power supplies won't
+	provide sufficient current, and Pi will not function properly.
+	
+	a.  Connecting the keyboard.  Plug a USB keyboard into one of the USB connectors on the Raspberry Pi.
+	b.  Connecting the mouse.  Plug a USB mouse into one of the remaining free USV connectors.
+	
+	
 
 Copying files from github
 
