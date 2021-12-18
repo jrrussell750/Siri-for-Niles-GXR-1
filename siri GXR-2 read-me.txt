@@ -23,8 +23,8 @@ I.	On the raspberry pi
 2.	Insert a micro SD card containing the Raspberry Pi OS image into the raspberry pi and boot it up.
 3.	Configure the wireless connection for access to your local network.
 4.	Verify that Apache is installed and working.
-5.	Install PHP.
-6.	Copy files from github repository.
+5.	Install php.
+6.	Copy the php file from github repository.
 7.	Connect the pi's wired connection to the Expansion port of the Niles GXR-2.  
 
 	Warning:  The Niles GXR-2 has 12 RJ-45 female ports that are used for controllers.  These ports send power to the controllers using a 
@@ -70,9 +70,16 @@ Connecting the Raspberry Pi
 
 Copying the siri.php file from github
 
-	This github repository contains a file called siri.php.  This file contains the Copy this file to the /var/www/html directory on the Raspberry Pi.  
-	You can do this one of two ways:  open the file in your browser, copy the contents, open a local file on the pi using the text
-	editor, and paste the contents into it.  Save the contents as siri.php.
+	This github repository contains a file called siri.php.  This file reads imbedded information from the siri shortcuts, crafts 
+	command strings, and sends them to the GXR-2.  Copy this file to the /var/www/html directory on the Raspberry Pi.  You can do 
+	this one of two ways:  
+	
+	1.  First method
+		a.  Open the file in the browser on the raspberry pi
+		b.  Copy the contents
+		c.  Open a local file on the pi using the text editor
+		d.  Paste the contents into it
+		e.  Save the contents as siri.php
 
 
 Creating and testing the first shortcut
