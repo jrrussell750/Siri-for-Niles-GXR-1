@@ -4,21 +4,28 @@ This file is under construction and will be updated several times during the nex
 you have questions or suggestions.
 
 
-You can configure a raspberry pi as a Niles GXR-2 controller and then use Siri to voice control the Niles through the use of shortcuts.  This
-project assumes that you have access to a properly configured Niles GXR-2 that is operating properly.
+You can configure a raspberry pi as a Niles GXR-2 controller and then use Siri to voice control the GXR-2 through the use of shortcuts.  The concept 
+is simple.  The Niles uses command strings to select zones and input devices, turn the volume up or down, and go to a previous or next selection.  These 
+strings can be created and sent using an apache web server and a php page hosted on a raspbery pi.  A set of siri shortcuts can be crafted on an iPhone 
+to send URLs with imbedded information to the apache server.  The php page uses the imbedded information to customize the command strings and then send 
+them to the GXR-2.
+
+		siri -> apache -> php -> GXR-2
+
+Please note that this project assumes that you have access to a properly configured Niles GXR-2.
 
 
 Overview:
 
-1.	Connect a display, keyboard, mouse, and power supply to the raspberry pi.
-2.	Using instructions from the Raspberry Pi site (https://www.raspberrypi.com/software/), build the latest version of the raspberry 
-	pi operating system on a micro SD card.
-3.	Insert the micro SD card into a raspberry pi and boot it up.
-4.	Configure the wireless connection of the raspberry pi for access to your local network.
-5.	Verify that Apache is working.
-6.	Install PHP.
-6.	Copy files from github repository to raspberry pi.
-7.	Connect the wired connection of the raspberry pi to the Expansion port of the Niles GXR-2.  
+I.	On the raspberry pi
+
+1.	Connect the display, keyboard, mouse, and power supply.
+2.	Insert a micro SD card containing the Raspberry Pi OS image into the raspberry pi and boot it up.
+3.	Configure the wireless connection for access to your local network.
+4.	Verify that Apache is installed and working.
+5.	Install PHP.
+6.	Copy files from github repository.
+7.	Connect the pi's wired connection to the Expansion port of the Niles GXR-2.  
 
 	Warning:  The Niles GXR-2 has 12 RJ-45 female ports that are used for controllers.  These ports send power to the controllers using a 
 	non-standard DC voltage via pins 7 and 8.  Also, pins 4 and 5 are used to transfer ir remote signals from controllers to the GXR-2.  
@@ -27,15 +34,19 @@ Overview:
 	the GXR-2.
 	
 8.	Record the IP address of your raspberry pi's wireless connection for use in the shortcut(s).
-9.	Create and test first shortcut on your Iphone to Get contents of URL.
-10.	Add additional shortcut(s) as required.
+
+
+II.	On your iPhone
+	
+1.	Create and test first shortcut on your Iphone to Get contents of URL.
+2.	Add additional shortcut(s) as required.
 
 
 Details
 
 Items required:
 
-  	Raspberry pi 3 or above with appropriate power supply (a power supply with an on/off switch is preferred
+  	Raspberry pi 3 or above with appropriate power supply (a power supply with an on/off switch is preferred)
 	Raspberry Pi case (Optional)
 	Micro SD Card
 	HDMI monitor
@@ -50,16 +61,18 @@ Items required:
 Connecting the Raspberry Pi 
 
 	It is best to obtain a power supply that is designed to work with the Raspberry pi, as some USB power supplies won't
-	provide sufficient current, and Pi will not function properly.
+	provide sufficient current, and the pi will not function properly.
 	
 	a.  Connecting the keyboard.  Plug a USB keyboard into one of the USB connectors on the Raspberry Pi.
-	b.  Connecting the mouse.  Plug a USB mouse into one of the remaining free USV connectors.
+	b.  Connecting the mouse.  Plug a USB mouse into one of the remaining free USB connectors.
 	
 	
 
-Copying files from github
+Copying the siri.php file from github
 
-	This github repository contains a file called siri.php.  Copy this file to the /var/www/html directory on the Raspberry Pi.
+	This github repository contains a file called siri.php.  This file contains the Copy this file to the /var/www/html directory on the Raspberry Pi.  
+	You can do this one of two ways:  open the file in your browser, copy the contents, open a local file on the pi using the text
+	editor, and paste the contents into it.  Save the contents as siri.php.
 
 
 Creating and testing the first shortcut
