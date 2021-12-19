@@ -24,12 +24,11 @@ I.	On a PC
 
 II.	On the raspberry pi
 
-	1.  Connect the display, keyboard, mouse, and power supply.
-	2.  Insert a micro SD card containing the Raspberry Pi OS image into the raspberry pi and boot it up.
+	1.  Connect the display, keyboard, and mouse.
+	2.  Insert a micro SD card containing the Raspberry Pi OS image into the raspberry pi, power it up, and complete the startup configuration.
 	3.  Configure the wireless connection for access to your local network.
-	4.  Verify that Apache is installed and working.
-	5.  Install php.
-	6.  Copy the php file from github repository.
+	4.  Install Apache and PHP.
+	6.  Copy the siri.php file from github repository.
 	7.  Connect the pi's wired connection to the Expansion port of the Niles GXR-2.  
 
 	Warning:  The Niles GXR-2 has 12 RJ-45 female ports that are used for controllers.  These ports send power to the controllers using a 
@@ -38,7 +37,9 @@ II.	On the raspberry pi
 	the raspberry pi and/or the GXR-2.  Make sure you are connecting the wired port from the Raspberry Pi to the port labeled "Expansion" on
 	the GXR-2.
 	
-	8.  Record the IP address of your raspberry pi's wireless connection for use in the shortcut(s).
+	8.  Record the IP address of your raspberry pi's wireless connection for use in the shortcut(s).  Please note Dynamically assigned 
+	    addresses may change over time.  Therefore, it may be necessary to set up a reservation in your DHCP server to guarantee that you'll 
+	    always be issued that address. To do so, search for "DHCP reservations" for your specific router. 
 
 
 III.	On your iPhone
@@ -63,25 +64,36 @@ Items required:
 	Ethernet patch cable (raspberry pi wired LAN to GXR-2 expansion port)
 	An iPhone 6 or above with IOS 15 and functioning Siri
 
-Creating the raspberry pi OS image
+Creating the raspberry pi OS image on a computer capable of running the raspberry pi imager
 
 	a.  Navigate to www.raspberrypi.com
 	b.  Download and install the raspberry pi imager
 	c.  Insert a micro SD card into the PC
 	d.  Open the raspberry pi imager
-	e.  
+	e.  Click on Choose Operating System, then click on Raspberry Pi OS fom the menu that displays
+	f.  Click on Choose Storage, then click on SDHC Card from the menu that displays
+	g.  Click on Write.  
+	h.  After the imager finishes creating and verifying the operating system, click on Continue and then close the 
+	    imager by clicking on the X in the upper right corner of the appSelect
+	i.  Remove the micro SD card from the PC
 
 
 Connecting the Raspberry Pi 
 
 	It is best to obtain a power supply that is designed to work with the raspberry pi, as some USB power supplies won't
-	provide sufficient current, and the pi will not function properly.
+	provide sufficient current, and the pi will not function properly.  Also, power supplies for raspberry pi 4 and above 
+	have USB-C power connectors vs the USB Micro-B used for pi 3s and below. The two connectors are not interchangable.
 	
 	a.  Plug a USB keyboard into one of the USB connectors on the raspberry pi.
 	b.  Plug a USB mouse into one of the remaining free USB connectors.
 	c.  Connect an HDMI monitor to the HDMI port on the raspberry pi.  Please note that raspberry pi models below 4 have full-sized
-	    HDMI connectors and raspberry pi 4's have micro HDMI connectors. 
-	d.  Connect the power supply to the raspberry pi.
+	    HDMI connectors and raspberry pi 4's have micro HDMI connectors.
+	d.  Insert the micro SD card with raspberry pi OS image into the micro SD slot on the bottom of the raspberry pi    
+	e.  Connect the power supply to the raspberry pi.
+	f.  Navigate through the configuration screens.
+	g.  Once the operating system is configured, reboot the raspberry pi.
+	
+
 	
 	
 
@@ -108,17 +120,19 @@ Creating and testing the first shortcut
 
 	a.  Open the siri shortcuts app.
 	b.  Press the plus sign (+) in the upper right corner of the app.
-	c.  Click on Shortcut Name and type in something like Turn On Niles.
+	c.  Click on Shortcut Name and type in a name that describes the shortcut.
 	d.  Click on Add Action.  
 	e.  In the search window that appears, type in Get Contents of URL.
 	f.  Click on Get Contents of URL to select it.
 	g.  Click on URL and enter the following:
 
 	http://<enter ip address of your niles pi here>/siri.php?zone=<zone> Room&device=<device>
+	
+	For example:  http://192.168.0.100/siri.php?zone=1&device=3
 
         Note:  You’ll need to use IP, zone, and device names from your system.  Also, the names are case sensitive, so make sure they are spelled 
 	and capitalized correctly.  You can also edit the zone and device names in the siri.php file to make it easier to refer to them in the URL.
 
-	h.  Test your shortcut.
+	h.  Test your shortcut.  "hey siri <shortcut name>"
 
  
