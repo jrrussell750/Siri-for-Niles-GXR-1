@@ -18,6 +18,8 @@ Please note that this project assumes that you have access to a properly configu
 Overview:
 
 I.	On a PC 
+
+	Use the raspberry pi imager to create a bootable micro SD card from a Raspberry Pi OS image.
 	
 
 II.	On the raspberry pi
