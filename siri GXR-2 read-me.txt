@@ -24,7 +24,7 @@ I.	On a PC
 
 II.	On the raspberry pi
 
-	1.  Connect the display, keyboard, and mouse.
+	1.  Connect the display, keyboard, and mouse (needed for configuration only).
 	2.  Insert a micro SD card containing the Raspberry Pi OS image into the raspberry pi, power it up, and complete the startup configuration.
 	3.  Configure the wireless connection for access to your local network.
 	4.  Install Apache and PHP.
@@ -53,13 +53,13 @@ Details
 Items required:
 
   	Raspberry pi 3 or above with appropriate power supply (a power supply with an on/off switch is preferred)
-	Raspberry Pi case (Optional)
-	Micro SD Card
+	Raspberry pi case (Optional)
+	Micro SD card
 	HDMI monitor
-	HDMI cable (Raspberry Pi 3) or Micro HDMI to Standard HDMI Cable (Raspberry Pi 4) 
+	HDMI cable (Raspberry Pi 3) or Micro HDMI to Standard HDMI cable (Raspberry Pi 4) 
 	Keyboard with touch pad or mouse
 	Computer with SD card reader (used to download and install the raspberry pi operating system on the Micro SD card)
-	Access to a wireless Ethernet LAN with Internet access
+	Access to a wireless Ethernet LAN with internet access
 	Access to a Niles GXR-2 controller in working condition
 	Ethernet patch cable (raspberry pi wired LAN to GXR-2 expansion port)
 	An iPhone 6 or above with IOS 15 and functioning Siri
@@ -84,18 +84,21 @@ Connecting the Raspberry Pi
 	provide sufficient current, and the pi will not function properly.  Also, power supplies for raspberry pi 4 and above 
 	have USB-C power connectors vs the USB Micro-B used for pi 3s and below. The two connectors are not interchangable.
 	
-	a.  Plug a USB keyboard into one of the USB connectors on the raspberry pi.
-	b.  Plug a USB mouse into one of the remaining free USB connectors.
+	a.  Plug a USB keyboard into one of the USB connectors on the raspberry pi
+	b.  Plug a USB mouse into one of the remaining free USB connectors
 	c.  Connect an HDMI monitor to the HDMI port on the raspberry pi.  Please note that raspberry pi models below 4 have full-sized
-	    HDMI connectors and raspberry pi 4's have micro HDMI connectors.
+	    HDMI connectors and raspberry pi 4's have micro HDMI connectors
 	d.  Insert the micro SD card with raspberry pi OS image into the micro SD slot on the bottom of the raspberry pi    
-	e.  Connect the power supply to the raspberry pi.
-	f.  Navigate through the configuration screens.
-	g.  Once the operating system is configured, reboot the raspberry pi.
+	e.  Connect the power supply to the raspberry pi
+	f.  Navigate through the configuration screens
+	g.  Once the operating system is configured, reboot the raspberry pi
+	h.  Open a command line terminal session and install apache and php with the following commands:
 	
-
-	
-	
+			sudo apt-get install apache2 -y
+			sudo apt-get install php -y
+			
+	i.  Verify that apache is running by opening the browser on the raspberry pi, typing localhost in the address text box, 
+	    and pressing Enter.  If it's working, the browser will display the apache welcome page.
 
 Copying the siri.php file from github
 
@@ -108,13 +111,39 @@ Copying the siri.php file from github
 		b.  Copy the contents
 		c.  Open a local file on the pi using the text editor
 		d.  Paste the contents into it
-		e.  Save the contents in the /home/pi directory as siri.php
-
+		e.  Save the contents in the /home/pi directory as siri.phpOpen a command line terminal session and enter the following command to copy the 			    siri.php file to the Apache home directory:
+		    
+		    cp siri.php /var/www/html/
+		    	    
+		f.  Open a command line terminal session and enter the following command to copy the siri.php file to the 
+		    Apache home directory:
+		    Open a command line terminal session and enter the following command to copy the siri.php file to the 
+		    Apache home directory:
+		    
+		    cp siri.php /var/www/html/
+		    cp siri.php /var/www/html/
+		    
 	2. Second method
 		a.  Navigate to the files list for this repository (https://github.com/jrrussell750/Siri-for-Niles-GXR-2)
 		b.  Click on the Code button in the upper right quadrant of the screen, and then click on the Download ZIP 
 		    entry on the menu that displays.
 		c.  Once the download has completed, unzip the file into the /home/pi directory
+		d.  Open a command line terminal session and enter the following command to copy the siri.php file to the 
+		    Apache home directory:
+		    
+		    cp siri.php /var/www/html/
+		    
+Connecting the wired LAN connection on the raspberry pi to the expansion connector on the Niles GXR-2
+
+	a.  Connect one end of a straight-through ethernet patch cable from the wired LAN connector on the raspberry pi to 
+	    the connector marked EXPANSION on the Niles GXR-2,  It is the RJ-45 female connector that is under the speaker 
+	    connectors for Zone 1.  
+	    
+	b.  Using the ifconfig command, verify that the eth0 interface on the raspberry pi is receiving an IP address of 10.100.x.x 
+	    from the DHCP server inside the GXR-2.  Please note that the GXR-2 has its own DHCP server.  If you attempt to connect
+	    the GXR-2 to your network, that server will attempt to give IP addresses from the 10.100.x.x network to all 
+	    devices that are using dynamic addressing.  That is why the raspberry pi must be directly connected to the GXR-2.
+
 
 Creating and testing the first shortcut
 
@@ -124,7 +153,10 @@ Creating and testing the first shortcut
 	d.  Click on Add Action.  
 	e.  In the search window that appears, type in Get Contents of URL.
 	f.  Click on Get Contents of URL to select it.
-	g.  Click on URL and enter the following:
+	g.  Click on URL and enter the following:Open a command line terminal session and enter the following command to copy the siri.php file to the 
+		    Apache home directory:
+		    
+		    cp siri.php /var/www/html/
 
 	http://<enter ip address of your niles pi here>/siri.php?zone=<zone> Room&device=<device>
 	
@@ -134,5 +166,7 @@ Creating and testing the first shortcut
 	and capitalized correctly.  You can also edit the zone and device names in the siri.php file to make it easier to refer to them in the URL.
 
 	h.  Test your shortcut.  "hey siri <shortcut name>"
+	
+Once you've confirmed that everything is working properly, you can disconnect the keyboard, mouse, and monitor from the raspberry pi and run it headless.
 
  
