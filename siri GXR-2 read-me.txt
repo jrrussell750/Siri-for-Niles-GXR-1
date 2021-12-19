@@ -17,15 +17,19 @@ Please note that this project assumes that you have access to a properly configu
 
 Overview:
 
-I.	On the raspberry pi
+I.	On a PC 
+	1.  Download and install the raspberry pi imager
+	2.  Download the latest raspberry pi OS image from www.raspberrypi.com
 
-1.	Connect the display, keyboard, mouse, and power supply.
-2.	Insert a micro SD card containing the Raspberry Pi OS image into the raspberry pi and boot it up.
-3.	Configure the wireless connection for access to your local network.
-4.	Verify that Apache is installed and working.
-5.	Install php.
-6.	Copy the php file from github repository.
-7.	Connect the pi's wired connection to the Expansion port of the Niles GXR-2.  
+II.	On the raspberry pi
+
+	1.  Connect the display, keyboard, mouse, and power supply.
+	2.  Insert a micro SD card containing the Raspberry Pi OS image into the raspberry pi and boot it up.
+	3.  Configure the wireless connection for access to your local network.
+	4.  Verify that Apache is installed and working.
+	5.  Install php.
+	6.  Copy the php file from github repository.
+	7.  Connect the pi's wired connection to the Expansion port of the Niles GXR-2.  
 
 	Warning:  The Niles GXR-2 has 12 RJ-45 female ports that are used for controllers.  These ports send power to the controllers using a 
 	non-standard DC voltage via pins 7 and 8.  Also, pins 4 and 5 are used to transfer ir remote signals from controllers to the GXR-2.  
@@ -33,13 +37,13 @@ I.	On the raspberry pi
 	the raspberry pi and/or the GXR-2.  Make sure you are connecting the wired port from the Raspberry Pi to the port labeled "Expansion" on
 	the GXR-2.
 	
-8.	Record the IP address of your raspberry pi's wireless connection for use in the shortcut(s).
+	8.  Record the IP address of your raspberry pi's wireless connection for use in the shortcut(s).
 
 
-II.	On your iPhone
+III.	On your iPhone
 	
-1.	Create and test first shortcut on your Iphone to Get contents of URL.
-2.	Add additional shortcut(s) as required.
+	1.  Create and test first shortcut on your Iphone to Get contents of URL.
+	2.  Add additional shortcut(s) as required.
 
 
 Details
@@ -60,11 +64,14 @@ Items required:
 
 Connecting the Raspberry Pi 
 
-	It is best to obtain a power supply that is designed to work with the Raspberry pi, as some USB power supplies won't
+	It is best to obtain a power supply that is designed to work with the raspberry pi, as some USB power supplies won't
 	provide sufficient current, and the pi will not function properly.
 	
-	a.  Connecting the keyboard.  Plug a USB keyboard into one of the USB connectors on the Raspberry Pi.
-	b.  Connecting the mouse.  Plug a USB mouse into one of the remaining free USB connectors.
+	a.  Plug a USB keyboard into one of the USB connectors on the raspberry pi.
+	b.  Plug a USB mouse into one of the remaining free USB connectors.
+	c.  Connect an HDMI monitor to the HDMI port on the raspberry pi.  Please note that raspberry pi models below 4 have full-sized
+	    HDMI connectors and raspberry pi 4's have micro HDMI connectors. 
+	d.  Connect the power supply to the raspberry pi.
 	
 	
 
@@ -79,8 +86,13 @@ Copying the siri.php file from github
 		b.  Copy the contents
 		c.  Open a local file on the pi using the text editor
 		d.  Paste the contents into it
-		e.  Save the contents as siri.php
+		e.  Save the contents in the /home/pi directory as siri.php
 
+	2. Second method
+		a.  Navigate to the files list for this repository (https://github.com/jrrussell750/Siri-for-Niles-GXR-2)
+		b.  Click on the Code button in the upper right quadrant of the screen, and then click on the Download ZIP 
+		    entry on the menu that displays.
+		c.  Once the download has completed, unzip the file into the /home/pi directory
 
 Creating and testing the first shortcut
 
