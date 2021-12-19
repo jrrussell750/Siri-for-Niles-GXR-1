@@ -18,8 +18,7 @@ Please note that this project assumes that you have access to a properly configu
 Overview:
 
 I.	On a PC 
-	1.  Download and install the raspberry pi imager
-	2.  Download the latest raspberry pi OS image from www.raspberrypi.com
+	
 
 II.	On the raspberry pi
 
@@ -61,6 +60,15 @@ Items required:
 	Access to a Niles GXR-2 controller in working condition
 	Ethernet patch cable (raspberry pi wired LAN to GXR-2 expansion port)
 	An iPhone 6 or above with IOS 15 and functioning Siri
+
+Creating the raspberry pi OS image
+
+	a.  Navigate to www.raspberrypi.com
+	b.  Download and install the raspberry pi imager
+	c.  Insert a micro SD card into the PC
+	d.  Open the raspberry pi imager
+	e.  
+
 
 Connecting the Raspberry Pi 
 
