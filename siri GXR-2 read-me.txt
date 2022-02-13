@@ -4,18 +4,19 @@ This file is under construction and will be updated several times during the nex
 you have questions or suggestions.
 
 
-You can configure a raspberry pi as a Niles GXR-2 controller and then use Siri to voice control the GXR-2 through the use of shortcuts.  The concept 
-is simple.  The Niles uses command strings to select zones and input devices, turn the volume up or down, and go to a previous or next selection.  These 
-strings can be created and sent using an apache web server and a php page hosted on a raspbery pi.  A set of siri shortcuts can be crafted on an iPhone 
-to send URLs with imbedded information to the apache server.  The php page uses the imbedded information to customize the command strings and then send 
-them to the GXR-2.
+You can configure a web server as a Niles GXR-2 controller and then use Siri to voice control the GXR-2 through the use of shortcuts.  The concept is simple.  
+The Niles uses command strings to select zones and input devices, turn the volume up or down, and go to a previous or next selection.  These strings can be 
+created and sent using a web server with a php page.  A set of siri shortcuts can be crafted on an iPhone to send URLs with imbedded information to the 
+web server.  The php page uses the imbedded information to customize the command strings and then send them to the GXR-2.  I chose to demonstrate this concept
+on an apache web server hosted on a Raspberry Pi.  However, you can host it on any web server with php support.
 
-		siri -> apache -> php -> GXR-2
+		siri -> web server -> php -> GXR-2
 
-Please note that this project assumes that you have access to a properly configured Niles GXR-2.
+Please note that this project assumes that you have access to a properly configured Niles GXR-2.  Also, these instructions refer to a test implementation of 
+apache on a raspberry pi.  You can modify them accordingly for other platforms/web servers.
 
 
-Overview:
+Overview for apache on Raspberry Pi:
 
 I.	On a PC 
 
